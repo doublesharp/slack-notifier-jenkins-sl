@@ -31,9 +31,9 @@ String getMultiBranchProjectName() {
     String[] entries = env.JOB_NAME.split('/')
     def len = entries.length
 
-    if (len == 1 || len == 2) return entries[0]
+    if (len == 1 || len == 2) env.JOB_NAME
 
-    entries = entries.take(len - 1)
+    entries = entries.drop(1)
     return entries.join('/')
 }
 
